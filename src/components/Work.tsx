@@ -4,7 +4,7 @@ import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md";
 
 const GITHUB_USERNAME = "gshreyasshetty";
 const MAX_PROJECTS = 6;
-const EXCLUDED_REPOS = new Set(["my-portfolio"]);
+const EXCLUDED_REPOS = new Set(["my-portfolio", "gshreyasshetty"]);
 const REPO_FETCH_LIMIT = MAX_PROJECTS + EXCLUDED_REPOS.size + 5;
 const DEFAULT_GITHUB_API = "https://api.github.com";
 const API_BASE = (import.meta.env.VITE_GITHUB_PROXY_URL ??

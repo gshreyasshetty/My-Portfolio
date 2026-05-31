@@ -18,4 +18,4 @@ Personal portfolio website showcasing my experience as a Data Engineer and AI/ML
 
 ## 🚀 Deployment
 
-🔗 https://github.com/gshreyasshetty/AutoExpert
+🔗 https://gshreyasshetty.vercel.app/

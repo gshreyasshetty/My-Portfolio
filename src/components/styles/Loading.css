@@ -1,0 +1,366 @@
+.modern-loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* fallback */
+  height: 100dvh;
+  background-color: #050505; /* Deep futuristic black */
+  color: #eeeeee;
+  z-index: 999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  overflow: hidden;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.2s ease;
+}
+
+.modern-loading-screen.fade-out {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modern-loading-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.modern-loading-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+/* TOP SECTION */
+.modern-loading-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+  animation: fadeIn 1s ease 0.2s both;
+}
+
+.modern-loading-logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.modern-loading-role {
+  text-transform: uppercase;
+  color: #a0a0a0;
+}
+
+/* MIDDLE SECTION */
+.modern-loading-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  animation: fadeIn 1s ease 0.4s both;
+}
+
+.modern-loading-title {
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 800;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #666666 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.modern-loading-percentage {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 300;
+  color: #ffffff;
+  margin-top: 1rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.percent-sign {
+  color: #666;
+  font-size: 0.6em;
+}
+
+/* BOTTOM SECTION */
+.modern-loading-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  animation: fadeIn 1s ease 0.6s both;
+}
+
+.modern-loading-bar-bg {
+  width: 100%;
+  max-width: 400px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-loading-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: width 0.1s linear;
+}
+
+.modern-loading-status {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #888888;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-loading-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.loading-complete .loading-box {
+  animation: blinkDone 0.3s forwards;
+  animation-delay: 1s;
+  opacity: 1;
+}
+
+@keyframes blinkDone {
+  to {
+    opacity: 0;
+  }
+}
+
+.loaderGame-container {
+  width: 200px;
+  transition: 0.3s;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.4);
+  transform-origin: top right;
+  filter: drop-shadow(0 12px 24px rgba(15, 15, 16, 0.15));
+}
+
+.loader-out .loaderGame-container {
+  opacity: 0;
+}
+
+.loaderGame-in {
+  width: 1200px;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  animation: loaderGame 7s linear infinite;
+}
+
+@keyframes loaderGame {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(-300px);
+  }
+}
+
+.loaderGame-line {
+  float: left;
+  margin: 0px 20px;
+  margin-bottom: 40px;
+  position: relative;
+  width: 10px;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(15, 15, 16, 0.9), rgba(15, 15, 16, 0.2));
+  display: block;
+  border-radius: 999px;
+}
+
+.loaderGame-line:nth-child(2n) {
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.loaderGame-ball {
+  position: absolute;
+  left: 20%;
+  top: 0%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0f0f10 0%, rgba(15, 15, 16, 0.2) 70%);
+  animation: ball25 7s infinite;
+  transform: translateY(10px);
+  animation-timing-function: cubic-bezier(0.3, 1.18, 0.63, 1.28);
+}
+
+.loading-marquee {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  color: rgba(15, 15, 16, 0.08);
+  font-size: 64px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.loading-marquee span {
+  padding: 0px 50px;
+  position: relative;
+}
+
+.loading-marquee span::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: rgba(15, 15, 16, 0.1);
+  position: absolute;
+  top: 50%;
+  border-radius: 50px;
+  left: 0px;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes loadingSweep {
+  0% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(60%);
+  }
+}
+
+@keyframes ball25 {
+  0% {
+    transform: translateY(70px);
+  }
+
+  15% {
+    transform: translateY(10px);
+  }
+
+  30% {
+    transform: translateY(70px);
+  }
+
+  45% {
+    transform: translateY(10px);
+  }
+
+  67% {
+    transform: translateY(70px);
+  }
+
+  80% {
+    transform: translateY(10px);
+  }
+
+  90% {
+    transform: translateY(70px);
+  }
+
+  100% {
+    transform: translateY(70px);
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .loading-wrap {
+    --Lsize: 210px;
+  }
+
+  .loading-button {
+    padding: 30px 70px;
+    font-size: 25px;
+  }
+
+  .loading-container {
+    left: 70px;
+  }
+
+  .loading-marquee {
+    font-size: 110px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .loading-header {
+    padding: 20px 0px;
+  }
+
+  .loader-title {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .loading-header {
+    padding: 35px 0px;
+  }
+
+  .loader-title {
+    font-size: 18px;
+  }
+}

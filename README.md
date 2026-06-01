@@ -16,3 +16,6 @@ Personal portfolio website showcasing my experience as a Data Engineer and AI/ML
 - **Styling:** Custom CSS
 - **Animation/3D:** GSAP, Three.js (assumed based on Draco and 3D capabilities)
 
+## 🚀 Deployment
+
+🔗 https://gshreyasshetty.vercel.app/
